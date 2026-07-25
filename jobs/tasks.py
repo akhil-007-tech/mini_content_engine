@@ -1,9 +1,8 @@
-from celery import shared_task
+
 from .models import Job
 from .services import generate_prompt
 
 
-@shared_task
 def process_job(job_id):
 
     job = Job.objects.get(id=job_id)

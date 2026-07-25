@@ -30,7 +30,7 @@ class GenerateAPIView(generics.CreateAPIView):
             job = serializer.save()
 
             # Send job to Celery
-            process_job.delay(str(job.id))
+            process_job(str(job.id))
 
             return Response(
                 {
